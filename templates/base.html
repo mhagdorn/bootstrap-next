@@ -103,7 +103,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-dark bg-dark{% endif %} fixed-top" role="navigation">
+<nav class="navbar navbar-expand-md {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-light bg-light{% endif %} fixed-top" role="navigation">
     {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
     <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="navbar-main-collapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -124,7 +124,7 @@
                 {% set PAGES_SORT_ATTRIBUTE = 'title' %}
             {%- endif %}
             {% if DISPLAY_PAGES_ON_MENU %}
-                {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+                {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) if not p.hidden %}
 		   {% if not p.parent %}
 		   {# page is a top level page #}
 		   {% if p.children|length > 0 %}
@@ -180,7 +180,7 @@
 </style>
 
 <div id="banner">
-  <div class="container{% if BOOTSTRAP_FLUID %}-fluid{% endif %}">
+  <div class="container-fluid">
     <div class="header-logo">
       <a class="pull-left" href="{{ SITEURL }}/"><img class="mr20" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{LOGO}}" alt="{{ SITENAME }}"></a>
     </div>
