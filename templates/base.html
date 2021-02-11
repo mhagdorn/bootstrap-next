@@ -57,7 +57,7 @@
     {% if BOOTSTRAP_THEME %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet">
     {% else %}
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
     {% endif %}
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet">
@@ -103,10 +103,10 @@
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-light bg-faded{% endif %} fixed-top" role="navigation">
+<nav class="navbar navbar-expand-md {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-dark bg-dark{% endif %} fixed-top" role="navigation">
     {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
-    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-label="Toggle navigation">
-        <i class="icon-menu"></i>
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="navbar-main-collapse" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
     </button>
     {% endif %}
     {% if SITELOGO or not HIDE_SITENAME %}
@@ -206,16 +206,14 @@
 </div>
 {% include 'includes/footer.html' %}
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
 {% endif %}
-{% include 'includes/sidebar/github-js.html' %}
-{% include 'includes/disqus_script.html' %}
-{% include 'includes/ga.html' %}
-{% include 'includes/piwik.html' %}
 
 {% if 'liquid_tags.notebook' in PLUGINS %}
     {% include 'includes/liquid_tags_nb_footer.html' %}
