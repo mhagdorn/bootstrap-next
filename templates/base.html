@@ -60,7 +60,8 @@
 	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
     {% endif %}
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css" rel="stylesheet">
-
+    {% block extracss %}{% endblock %}
+    
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet">
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
@@ -233,6 +234,7 @@ $('.popup-gallery').magnificPopup({
 	}
 });
 </script>
+{% block extrajs %}{% endblock %}
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
