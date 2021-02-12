@@ -132,7 +132,7 @@
 	               <li class="nav-item dropdown">
                 	  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ p.menulabel|default(p.title) }}</a>
                           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  {% for c in p.children %}
+			  {% for c in p.children | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
                              {% if c.url %}
 			       <a class="dropdown-item" href="{{ SITEURL }}/{{ c.url }}">{{ c.menulabel|default(c.title) }}</a>
 			     {% endif %}
