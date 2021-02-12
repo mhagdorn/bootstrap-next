@@ -59,6 +59,7 @@
     {% else %}
 	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
     {% endif %}
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css" rel="stylesheet">
 
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet">
 
@@ -220,6 +221,18 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.magnific-popup.min.js"></script>
+<script>
+$('.popup-gallery').magnificPopup({
+	delegate: 'a',
+	type: 'image',
+	gallery: {
+		enabled: true,
+		navigateByImgClick: true,
+		preload: [1,2]
+	}
+});
+</script>
 
 {% if BANNER %}
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
