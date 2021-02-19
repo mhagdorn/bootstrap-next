@@ -64,3 +64,12 @@
         </div>
     </section>
 {% endblock %}
+
+{% block extrajs %}
+{% if page.panorama %}
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../js/krpano.js"></script>
+<script>
+  embedpano({xml:"{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../panoramas/{{ page.panorama }}", target:"pano", html5:"only", mobilescale:1.0, passQueryParameters:true, basepath:"{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../panoramas/"});
+</script>
+{% endif %}
+{% endblock %}
