@@ -1,0 +1,25 @@
+{% macro make_menu_entry(item,page,sub) %}
+{% if item.children|length > 0 %}
+{% if sub %}
+<li><a class="dropdown-item dropdown-toggle" href="{{ item.url }}">{{ item.menulabel|default(item.title) }}</a>    
+  <ul class="dropdown-menu">
+{% else %}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="{{ item.url }}" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{ item.menulabel|default(item.title) }}
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+{% endif %}
+{% for c in item.children | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
+{{ make_menu_entry(c,page,True) }}
+{% endfor %}
+  </ul>
+</li>
+{% else %}
+{% if item.url %}
+<li {% if item == page %}active{% endif %}"><a href="{{ SITEURL }}/{{ item.url }}" class={% if sub %}"dropdown-item"{% else %}"nav-link"{% endif %}>
+    {{ item.menulabel|default(item.title) }}
+</a></li>
+{% endif %}
+{% endif %}
+{% endmacro %}

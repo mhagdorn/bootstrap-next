@@ -60,6 +60,7 @@
 	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
     {% endif %}
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-4-navbar.min.css" rel="stylesheet">	 
     {% block extracss %}{% endblock %}
     
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet">
@@ -125,28 +126,12 @@
             {% if not PAGES_SORT_ATTRIBUTE -%}
                 {% set PAGES_SORT_ATTRIBUTE = 'title' %}
             {%- endif %}
-            {% if DISPLAY_PAGES_ON_MENU %}
+		{% if DISPLAY_PAGES_ON_MENU %}
+		{% import 'includes/make-menu.html' as makemenu with context %}
                 {% for p in pages | sort(attribute=PAGES_SORT_ATTRIBUTE) if not p.hidden %}
 		   {% if not p.parent %}
 		   {# page is a top level page #}
-		   {% if p.children|length > 0 %}
-	               <li class="nav-item dropdown">
-                	  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ p.menulabel|default(p.title) }}</a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  {% for c in p.children | sort(attribute=PAGES_SORT_ATTRIBUTE) %}
-                             {% if c.url %}
-			       <a class="dropdown-item" href="{{ SITEURL }}/{{ c.url }}">{{ c.menulabel|default(c.title) }}</a>
-			     {% endif %}
-			  {% endfor %}
-			  </div>     
-	               </li>
-                   {% else %}
-                       {% if p.url %}
-                        <li class="nav-item {% if p == page %}active{% endif %}"><a href="{{ SITEURL }}/{{ p.url }}" class="nav-link">
-                            {{ p.menulabel|default(p.title) }}
-                        </a></li>
-			{% endif %}
-	            {% endif %}
+                   {{ makemenu.make_menu_entry(p,page) }}
 		    {% endif %}
                   {% endfor %}
             {% endif %}
@@ -222,6 +207,7 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+<script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap-4-navbar.min.js"></script>
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.magnific-popup.min.js"></script>
 <script>
 $('.popup-gallery').magnificPopup({
