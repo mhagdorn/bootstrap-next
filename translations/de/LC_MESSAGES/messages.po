@@ -102,11 +102,15 @@ msgstr "Kommentare ansehen"
 msgid "Comments"
 msgstr "Kommentare"
 
-#: templates/includes/footer.html:11
-msgid "Powered by"
-msgstr "Powered by"
+#: templates/includes/footer.html:16
+msgid "About this webpage"
+msgstr "Impressum"
 
-#: templates/includes/footer.html:21
+#: templates/includes/footer.html:18
+msgid "Privacy Policy"
+msgstr "Datenschutz"
+
+#: templates/includes/footer.html:20
 msgid "Back to top"
 msgstr "Zurück nach oben"
 
