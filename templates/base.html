@@ -31,6 +31,8 @@
         <meta name="author" content="{{ AUTHOR }}" />
     {% endblock %}
 
+    <link rel="author" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../humans.txt" />
+	
     {# Open Graph tags #}
     {% if USE_OPEN_GRAPH %}
     {% block opengraph %}
