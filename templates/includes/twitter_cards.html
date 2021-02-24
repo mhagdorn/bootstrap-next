@@ -10,7 +10,7 @@
     {% if article %}
         {% if article.og_image %}
             <meta property="twitter:image"
-                  content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ article.og_image }}"/>
+                  content="{{ SITEURL }}/{{ article.og_image }}"/>
         {% elif OPEN_GRAPH_IMAGE %}
             <meta property="twitter:image"
                   content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ OPEN_GRAPH_IMAGE }}"/>
@@ -18,7 +18,7 @@
     {% elif page %}
         {% if page.og_image %}
             <meta property="twitter:image"
-                  content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ page.og_image }}"/>
+                  content="{{ SITEURL }}/{{ page.og_image }}"/>
         {% elif OPEN_GRAPH_IMAGE %}
             <meta property="twitter:image"
                   content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ OPEN_GRAPH_IMAGE }}"/>

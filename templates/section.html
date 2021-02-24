@@ -28,7 +28,7 @@
 		{% if c.og_image %}
 		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ c.og_image }}"/>
 		{% else %}
-		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ OPEN_GRAPH_IMAGE }}"/>
 		{% endif %}
 	      </div>
 	      <div class="summary">{{ c.summary }}
