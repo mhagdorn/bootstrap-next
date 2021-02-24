@@ -24,11 +24,13 @@
 	      {% else %}
 	      <h2>{{ c.title }}</h2>
 	      {% endif %}
-	      {% if c.banner %}
 	      <div class="figure align-center">
-		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ c.banner }}"/>
+		{% if c.og_image %}
+		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ c.og_image }}"/>
+		{% else %}
+		<img class="image-process-landscape-large" src="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+		{% endif %}
 	      </div>
-	      {% endif %}
 	      <div class="summary">{{ c.summary }}
                 <div class="clearfix">
                   <a class="btn btn-secondary btn-md float-right" href="{{ SITEURL }}/{{ c.url }}">{{ _('more') }}…</a>
