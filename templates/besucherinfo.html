@@ -26,7 +26,7 @@
 {% block extrajs %}
 <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/leaflet.js"></script>
 <script>
-var map = L.map('map').setView([49.300987165644095, 9.650937604802682], 15);
+var map = L.map('leafletmap').setView([49.300987165644095, 9.650937604802682], 15);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
