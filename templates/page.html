@@ -10,6 +10,30 @@
     {% if page.summary %}
         <meta name="description" content="{{ page.summary|striptags|escape }}" />
     {% endif %}
+
+    <!-- structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+      {% for parent in page.parents %}
+          {
+            "@type": "ListItem",
+              "position": {{ loop.index }},
+              "name": "{{ parent.title }}",
+              "item": "{{ SITEURL }}/{{ parent.url }}"
+          },
+      {% endfor %}
+          {
+            "@type": "ListItem",
+              "position": {{ page.parents|length + 1 }},
+              "name": "{{ page.title }}",
+              "item": "{{ SITEURL }}/{{ page.url }}"
+          }
+      ]
+    }
+    </script>
 {% endblock %}
 {% block opengraph %}
     {% if OPEN_GRAPH_FB_APP_ID %}
