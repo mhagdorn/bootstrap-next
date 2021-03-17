@@ -1,0 +1,10 @@
+{% macro header_translations_for(article) %}
+{% if article.translations %}
+<link rel="alternate" hreflang="{{ article.lang }}"
+      href="{{ SITEURL }}/{{ article.url }}" />
+{% for translation in article.translations %}
+<link rel="alternate" hreflang="{{ translation.lang }}"
+      href="{{ SITEURL }}/{{ translation.url }}" />
+{% endfor %}
+{% endif %}
+{% endmacro %}

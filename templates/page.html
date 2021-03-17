@@ -1,4 +1,8 @@
 {% extends "base.html" %}
+{% block headertranslation %}
+{% import 'includes/transheader.html' as transheader with context %}
+{{ transheader.header_translations_for(page) }}
+{% endblock %}
 {% block title %}{{ page.title }} - {{ SITENAME }}{% endblock %}
 {% block html_lang %}{{ page.lang }}{% endblock %}
 {% block meta %}

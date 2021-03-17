@@ -14,6 +14,9 @@
         {% include 'includes/liquid_tags_nb_header.html' %}
     {% endif %}
 
+    {% block headertranslation %}
+    {% endblock %}
+
     {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
     {% if FAVICON %}
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ FAVICON }}" rel="icon">
@@ -171,7 +174,7 @@
 <div id="banner">
   <div class="container-fluid">
     <div class="header-logo">
-      <a class="pull-left" href="{{ SITEURL }}/"><img class="mr20" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{LOGO}}" alt="{{ SITENAME }}"></a>
+      <a class="pull-left" href="{{ SITEURL }}/"><img class="mr20" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{% if page and page.logo %}{{ page.logo }}{% else %}{{LOGO}}{% endif %}" alt="{{ SITENAME }}"></a>
     </div>
   </div>
 </div>
