@@ -17,7 +17,13 @@
 
     <!-- structured data -->
     <script type="application/ld+json">
-    {
+    [{
+      "@context": "https://schema.org/",
+      "@type": "Organization",
+      "url": "{{ SITEURL }}",
+      "logo": "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ LOGO }}"
+     },
+     {
       "@context": "https://schema.org/",
       "@type": "BreadcrumbList",
       "itemListElement": [
@@ -36,7 +42,7 @@
               "item": "{{ SITEURL }}/{{ page.url }}"
           }
       ]
-    }
+     }]
     </script>
 {% endblock %}
 {% block opengraph %}
