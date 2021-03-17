@@ -17,6 +17,31 @@
     {% if article.summary %}
         <meta name="description" content="{{ article.summary|striptags|escape }}" />
     {% endif %}
+
+    <!-- structured data -->
+    <script type="application/ld+json">
+    [{
+      "@context": "https://schema.org/",
+      "@type": "Organization",
+      "url": "{{ SITEURL }}",
+      "logo": "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ LOGO }}"
+     },
+     {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{{ article.title }}",
+      "image": [
+        {% if article.og_image %}
+        "{{ SITEURL }}/{{ article.og_image }}"
+        {% elif OPEN_GRAPH_IMAGE %}
+        "{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"
+        {% endif %}
+       ],
+      "datePublished": "{{ article.date.isoformat() }}"{% if article.modified %},
+      "dateModified": "{{ article.modified.isoformat() }}"
+      {% endif %}
+     }]
+    </script>
 {% endblock %}
 {% block opengraph %}
     {% if USE_OPEN_GRAPH %}
