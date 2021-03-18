@@ -113,7 +113,7 @@
 
 <nav class="navbar navbar-expand-lg {% if BOOTSTRAP_NAVBAR_INVERSE %}navbar-inverse bg-inverse{% else %}navbar-light bg-light{% endif %} fixed-top" role="navigation">
     {% if MENUITEMS or (pages and DISPLAY_PAGES_ON_MENU) or (categories and DISPLAY_CATEGORIES_ON_MENU) %}
-    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target=".navbar-main-collapse" aria-controls="navbar-main-collapse" aria-label="Toggle navigation">
+    <button type="button" class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navbar-main-collapse" aria-controls="navbar-main-collapse" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     {% endif %}
@@ -123,7 +123,7 @@
         {% if not HIDE_SITENAME %}{{ SITENAME }}{% endif %}
     </a>
     {% endif %}
-    <div class="collapse navbar-collapse navbar-main-collapse">
+    <div class="collapse navbar-collapse" id="navbar-main-collapse">
         <ul class="navbar-nav">
             {% for title, link in MENUITEMS %}
                 <li class="nav-item"><a href="{{ link }}" class="nav-link">{{ title }}</a></li>
