@@ -14,9 +14,6 @@
         {% include 'includes/liquid_tags_nb_header.html' %}
     {% endif %}
 
-    {% block headertranslation %}
-    {% endblock %}
-
     {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
     {% if FAVICON %}
     <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ FAVICON }}" rel="icon" />
@@ -29,6 +26,7 @@
     {% endif %}
 
     {% block canonical_rel %}{% endblock %}
+    {% block headertranslation %}{% endblock %}
 
     {% block meta %}
         <meta name="author" content="{{ AUTHOR }}" />
