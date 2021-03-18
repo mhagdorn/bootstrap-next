@@ -6,9 +6,9 @@
 <head>
     <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
     <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     {% if 'liquid_tags.notebook' in PLUGINS %}
         {% include 'includes/liquid_tags_nb_header.html' %}
@@ -19,13 +19,13 @@
 
     {# Favicons are a touchy subject. For reasoning for the following code, see: http://stackoverflow.com/a/23851464/872397 #}
     {% if FAVICON %}
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ FAVICON }}" rel="icon">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ FAVICON }}" rel="icon" />
     {% endif %}
     {% if FAVICON_IE %}
     <!--[if IE]><link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON_IE }}"><![endif]-->
     {% endif %}
     {% if TOUCHICON %}
-    <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ TOUCHICON }}">
+    <link rel="apple-touch-icon" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ TOUCHICON }}" />
     {% endif %}
 
     {% block canonical_rel %}{% endblock %}
@@ -60,32 +60,32 @@
 
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
-        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet"/>
     {% else %}
-	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet">
+	 <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap.min.css" rel="stylesheet"/>
     {% endif %}
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css" rel="stylesheet">
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-4-navbar.min.css" rel="stylesheet">	 
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/magnific-popup.css" rel="stylesheet"/>
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/bootstrap-4-navbar.min.css" rel="stylesheet"/>	 
     {% block extracss %}{% endblock %}
     
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/entypo.css" rel="stylesheet"/>
 
-    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet"/>
     {% if 'tipue_search' in PLUGINS %}
-    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link href="{{ SITEURL}}/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet"/>
     {% endif %}
     {% if DOCUTIL_CSS %}
-        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet"/>
     {% endif %}
     {% if TYPOGRIFY %}
-        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/typogrify.css" rel="stylesheet"/>
     {% endif %}
     <link rel="stylesheet" href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/style.css" type="text/css"/>
     {% if CUSTOM_CSS %}
-        <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ CUSTOM_CSS }}" rel="stylesheet"/>
     {% endif %}
     {% if SHARIFF %}
-        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shariff/shariff.min.css" rel="stylesheet">
+        <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/shariff/shariff.min.css" rel="stylesheet"/>
     {% endif %}
 
     {% if FEED_ALL_ATOM %}
