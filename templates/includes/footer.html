@@ -19,13 +19,13 @@
 	   {% set lang = page.lang %}
 	   {% endif %}
 	   {% if lang == 'en' %}
-	   <a href="{{ SITEURL }}/about">{{ _('About this webpage') }}</a>
+	   <a href="{{ SITEURL }}/about/">{{ _('About this webpage') }}</a>
 	   &middot;
-	   <a href="{{ SITEURL }}/privacy_policy">{{ _('Privacy Policy') }}</a>
+	   <a href="{{ SITEURL }}/privacy_policy/">{{ _('Privacy Policy') }}</a>
 	   {% else %}
-	   <a href="{{ SITEURL }}/impressum">{{ _('About this webpage') }}</a>
+	   <a href="{{ SITEURL }}/impressum/">{{ _('About this webpage') }}</a>
 	   &middot;
-	   <a href="{{ SITEURL }}/datenschutz">{{ _('Privacy Policy') }}</a>
+	   <a href="{{ SITEURL }}/datenschutz/">{{ _('Privacy Policy') }}</a>
 	   {% endif %}
             {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
               {% from 'includes/cc-license.html' import cc_license_mark %}
