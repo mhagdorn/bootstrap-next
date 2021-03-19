@@ -1,11 +1,11 @@
 {% macro make_menu_entry(item,page,sub) %}
 {% if item.children|length > 0 %}
 {% if sub %}
-<li><a class="dropdown-item dropdown-toggle" href="{{ item.url }}">{{ item.menulabel|default(item.title) }}</a>    
+<li><a class="dropdown-item dropdown-toggle" href="{{ SITEURL }}/{{ item.url }}">{{ item.menulabel|default(item.title) }}</a>    
   <ul class="dropdown-menu">
 {% else %}
 <li class="nav-item dropdown">
-  <a class="nav-link dropdown-toggle" href="{{ item.url }}" id="navbarDropdownMenuLink{{ item.slug }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+  <a class="nav-link dropdown-toggle" href="{{ SITEURL }}/{{ item.url }}" id="navbarDropdownMenuLink{{ item.slug }}" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     {{ item.menulabel|default(item.title) }}
   </a>
   <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink{{ item.slug }}">
