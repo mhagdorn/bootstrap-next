@@ -56,6 +56,12 @@
     {# Twitter Cards tags #}
     {% include 'includes/twitter_cards.html' %}
 
+    <style>
+      #banner{
+	  background-image:url("{{ SITEURL}}/{{ THEME_STATIC_DIR }}/../{{ BANNER }}");
+      }
+    </style>
+	    
     <!-- Bootstrap -->
     {% if BOOTSTRAP_THEME %}
         <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/themes/{{ BOOTSTRAP_THEME }}/bootstrap.min.css" rel="stylesheet"/>
@@ -163,12 +169,6 @@
 </nav> <!-- /.navbar -->
 <!-- Banner -->
 {% block banner %}
-<style>
-	#banner{
-	    background-image:url("{{ SITEURL}}/{{ THEME_STATIC_DIR }}/../{{ BANNER }}");
-	}
-</style>
-
 <div id="banner">
   <div class="container-fluid">
     <div class="header-logo">
