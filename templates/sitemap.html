@@ -1,0 +1,43 @@
+{% macro sitemap_translations_for(item) %}
+  <url>
+    <loc>{{ SITEURL }}/{{ item.url }}</loc>
+{% if item.translations %}
+    <xhtml:link 
+               rel="alternate"
+               hreflang="{{ item.lang }}"
+               href="{{ SITEURL }}/{{ item.url }}"/>
+{% for translation in item.translations %}
+    <xhtml:link 
+               rel="alternate"
+               hreflang="{{ translation.lang }}"
+               href="{{ SITEURL }}/{{ translation.url }}"/>
+{% endfor %}
+  </url>
+{% for translation in item.translations %}
+  <url>
+    <loc>{{ SITEURL }}/{{ translation.url }}</loc>
+    <xhtml:link 
+               rel="alternate"
+               hreflang="{{ item.lang }}"
+               href="{{ SITEURL }}/{{ item.url }}"/>
+{% for translation in item.translations %}
+    <xhtml:link 
+               rel="alternate"
+               hreflang="{{ translation.lang }}"
+               href="{{ SITEURL }}/{{ translation.url }}"/>
+{% endfor %}
+  </url>
+{% endfor %}
+{% endif %}
+  </url>
+{% endmacro %}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+	xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  {% for p in pages %}
+  {{ sitemap_translations_for(p) }}
+  {% endfor %}
+  {% for a in articles %}
+  {{ sitemap_translations_for(a) }}
+  {% endfor %}
+</urlset>
