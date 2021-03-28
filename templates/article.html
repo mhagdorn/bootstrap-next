@@ -32,9 +32,9 @@
       "headline": "{{ article.title }}",
       "image": [
         {% if article.og_image %}
-        "{{ SITEURL }}/{{ article.og_image }}"
+        "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ article.og_image }}"
         {% elif OPEN_GRAPH_IMAGE %}
-        "{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"
+        "{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ OPEN_GRAPH_IMAGE }}"
         {% endif %}
        ],
       "datePublished": "{{ article.date.isoformat() }}"{% if article.modified %},

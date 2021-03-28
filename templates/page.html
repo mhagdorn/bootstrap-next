@@ -56,10 +56,10 @@
     <meta property="og:description" content="{{ page.summary|striptags|escape }}" />
     {% if page.og_image %}
         <meta property="og:image"
-              content="{{ SITEURL }}/{{ page.og_image }}"/>
+              content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ page.og_image }}"/>
     {% elif OPEN_GRAPH_IMAGE %}
         <meta property="og:image"
-              content="{{ SITEURL }}/{{ OPEN_GRAPH_IMAGE }}"/>
+              content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/../{{ OPEN_GRAPH_IMAGE }}"/>
     {% endif %}
 {% endblock %}
 
